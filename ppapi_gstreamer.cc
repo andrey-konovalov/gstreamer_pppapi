@@ -19,7 +19,6 @@
 #include "ppapi/cpp/module.h"
 #include "ppapi/cpp/rect.h"
 #include "ppapi/cpp/var.h"
-#include "base/memory/scoped_ptr.h"
 #include "ppapi/proxy/plugin_resource.h"
 #include "ppapi/proxy/ppapi_proxy_export.h"
 #include "ppapi/shared_impl/resource.h"
