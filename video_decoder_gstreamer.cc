@@ -199,7 +199,7 @@ int32_t VideoDecoderGstreamer_initialize(void *gst, const char *url)
     if (decoder->hole) {
          g_print("---VideoDecoderGstreamer::initialize with hole\n");
 
-         decoder->sink = gst_element_factory_make ("kmssink", "vsink");
+         decoder->sink = gst_element_factory_make ("waylandsink", "vsink");
          g_object_set (decoder->sink,
               "sync", TRUE,
               "qos", TRUE,
@@ -209,7 +209,7 @@ int32_t VideoDecoderGstreamer_initialize(void *gst, const char *url)
 
         /* Set the URI to play */
         g_object_set (decoder->playbin, "uri", url,
-              "video-sink", decoder->sink, //to test with kmssink
+              "video-sink", decoder->sink, //to test with waylandsink
               "flags", GST_PLAY_FLAG_NATIVE_VIDEO |
                GST_PLAY_FLAG_NATIVE_AUDIO,
                NULL);
@@ -222,7 +222,7 @@ int32_t VideoDecoderGstreamer_initialize(void *gst, const char *url)
 
         pipeline_sink = gst_pipeline_new ("pipeline");
 
-        decoder->sink = gst_element_factory_make ("kmssink", "vsink");
+        decoder->sink = gst_element_factory_make ("waylandsink", "vsink");
         color_conv = gst_element_factory_make ("bdisptransform", "cconv");
 
         g_object_set (decoder->sink,
